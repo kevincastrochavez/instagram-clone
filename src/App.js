@@ -1,7 +1,20 @@
-import React from "react";
+import React, { useState } from "react";
 import Post from "./components/Post";
 
 function App() {
+  const [posts, setPosts] = useState([
+    {
+      username: "kevincastro",
+      caption: "It works",
+      imageUrl: "http",
+    },
+    {
+      username: "kevincastro",
+      caption: "It works",
+      imageUrl: "http",
+    },
+  ]);
+
   return (
     <div className="app">
       <div className="app__header">
@@ -12,9 +25,9 @@ function App() {
         />
       </div>
 
-      <Post />
-      <Post />
-      <Post />
+      {posts.map((post) => (
+        <Post {...post} />
+      ))}
     </div>
   );
 }
