@@ -6,7 +6,7 @@ function App() {
     {
       username: "kevincastro",
       caption: "It works",
-      imageUrl: "http",
+      imageUrl: "https://via.placeholder.com/400x400",
     },
     {
       username: "kevincastro",
