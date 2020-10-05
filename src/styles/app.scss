@@ -1,0 +1,11 @@
+.app {
+  background-color: #fafafa;
+  height: 100vh;
+
+  &__header {
+    padding: 2rem;
+    background-color: white;
+    border-bottom: 0.1rem solid lightgray;
+    object-fit: contain;
+  }
+}
