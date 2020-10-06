@@ -1,0 +1,26 @@
+@media only screen and (max-width: 50rem) {
+  #root {
+    width: 50rem !important;
+  }
+
+  .app__posts {
+    display: flex;
+    flex-direction: column;
+
+    &-right {
+      margin-left: 0;
+      display: flex;
+      justify-content: center;
+    }
+  }
+
+  .imageupload {
+    margin-bottom: 11rem;
+
+    &__button {
+      width: 100%;
+      padding: 0 !important;
+      margin: 1rem 0 0 0 !important;
+    }
+  }
+}

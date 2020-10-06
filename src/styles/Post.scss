@@ -58,12 +58,24 @@
     border: none;
     padding: 1rem;
     border-top: 0.1rem solid lightgray;
+
+    &:focus {
+      outline: none;
+    }
   }
 
   &__button {
-    flex: 0;
+    width: 10rem;
     color: #6082a3;
+    font-size: 1.8rem;
+    cursor: pointer;
     border: none;
     border-top: 0.1rem solid lightgray;
+    transition: all 0.3s ease-in-out;
+
+    &:hover {
+      color: white;
+      background-color: #bdbdbd;
+    }
   }
 }

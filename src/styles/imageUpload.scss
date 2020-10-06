@@ -3,10 +3,27 @@
   flex-direction: column;
   width: 60%;
   margin: 1rem auto;
-  //   background-color: white;
-  //   border-top: 0.1rem solid lightgray;
 
   &__progress {
+    height: 2rem;
     width: 100%;
+  }
+
+  &__select {
+    &:focus {
+      outline: none;
+    }
+  }
+
+  &__button {
+    height: 4rem;
+    width: 8rem;
+    margin-left: 8rem !important;
+    font-size: 1.5rem !important;
+
+    &:hover {
+      background-color: #bdbdbd !important;
+      color: white;
+    }
   }
 }

@@ -46,6 +46,13 @@ function App() {
       if (authUser) {
         console.log(authUser);
         setUser(authUser);
+
+        if (authUser.displayName) {
+        } else {
+          return authUser.updateProfile({
+            displayName: username,
+          });
+        }
       } else {
         setUser(null);
       }
@@ -55,6 +62,8 @@ function App() {
       unsubscribe();
     };
   }, [user, username]);
+
+  console.log("user", user);
 
   useEffect(() => {
     db.collection("posts")
@@ -82,11 +91,6 @@ function App() {
     e.preventDefault();
     auth
       .createUserWithEmailAndPassword(email, password)
-      .then((authUser) => {
-        return authUser.user.updateProfile({
-          displayName: username,
-        });
-      })
       .catch((error) => alert(error.message));
 
     setRegisterOpen(false);
@@ -164,9 +168,11 @@ function App() {
           alt="Instagram Logo"
         />
 
-        {user?.displayName ? (
+        {user ? (
           <div className="app__header-right">
-            <Button onClick={() => auth.signOut()}>Logout</Button>
+            <Button className="app__logout" onClick={() => auth.signOut()}>
+              Logout
+            </Button>
             <Avatar
               className="app__header-avatar"
               alt={user.displayName}
@@ -218,11 +224,7 @@ function App() {
         </div>
       </div>
 
-      {user?.displayName ? (
-        <ImageUpload username={user.displayName} />
-      ) : (
-        <h3>Sorry, you need to login to upload</h3>
-      )}
+      {user?.displayName ? <ImageUpload username={user.displayName} /> : ""}
     </div>
   );
 }

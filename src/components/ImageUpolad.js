@@ -43,9 +43,9 @@ const ImageUpload = ({ username }) => {
               timestamp: firebase.firestore.FieldValue.serverTimestamp(),
             });
 
+            setImage(null);
             setProgress(0);
             setCaption("");
-            setImage(null);
           });
       }
     );
@@ -60,7 +60,11 @@ const ImageUpload = ({ username }) => {
         onChange={(e) => setCaption(e.target.value)}
       />
       <div>
-        <input type="file" onChange={handleChange} />
+        <input
+          className="imageupload__select"
+          type="file"
+          onChange={handleChange}
+        />
         <Button className="imageupload__button" onClick={handleUpload}>
           Upload
         </Button>

@@ -25,6 +25,20 @@
     &-image {
       object-fit: contain;
     }
+
+    &-right {
+      display: flex;
+    }
+  }
+
+  &__logout {
+    margin-right: 2rem !important;
+    font-size: 1.8rem !important;
+
+    &:hover {
+      background-color: #bdbdbd !important;
+      color: white;
+    }
   }
 
   &__login {
@@ -40,6 +54,11 @@
       margin-top: 3rem;
       height: 5rem;
       font-size: 2rem;
+
+      &:hover {
+        background-color: #bdbdbd;
+        color: white;
+      }
     }
 
     &-home {
@@ -48,7 +67,12 @@
       }
 
       button {
-        font-size: 2rem;
+        font-size: 1.8rem;
+
+        &:hover {
+          background-color: #bdbdbd;
+          color: white;
+        }
       }
     }
   }
