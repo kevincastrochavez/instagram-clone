@@ -7,7 +7,11 @@
   &__header {
     display: flex;
     align-items: center;
-    padding: 2rem;
+    padding: 1.5rem 2rem;
+
+    & h3 {
+      font-size: 1.5rem;
+    }
 
     &-avatar {
       margin-right: 1rem;
@@ -22,7 +26,44 @@
   }
 
   &__text {
+    font-size: 1.4rem;
     font-weight: normal;
-    padding: 2rem;
+    padding: 1rem 2rem;
+
+    strong {
+      margin-right: 0.5rem;
+    }
+  }
+
+  &__comments {
+    padding: 1.5rem 2rem;
+    font-size: 1.2rem;
+
+    & p {
+      margin: 0.5rem 0;
+
+      strong {
+        margin-right: 0.5rem;
+      }
+    }
+  }
+
+  &__comment-box {
+    display: flex;
+    margin-top: 1rem;
+  }
+
+  &__input {
+    flex: 1;
+    border: none;
+    padding: 1rem;
+    border-top: 0.1rem solid lightgray;
+  }
+
+  &__button {
+    flex: 0;
+    color: #6082a3;
+    border: none;
+    border-top: 0.1rem solid lightgray;
   }
 }

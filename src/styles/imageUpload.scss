@@ -1,0 +1,12 @@
+.imageupload {
+  display: flex;
+  flex-direction: column;
+  width: 60%;
+  margin: 1rem auto;
+  //   background-color: white;
+  //   border-top: 0.1rem solid lightgray;
+
+  &__progress {
+    width: 100%;
+  }
+}

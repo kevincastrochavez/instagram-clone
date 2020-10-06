@@ -1,11 +1,65 @@
+.MuiInputBase-root {
+  height: 4rem;
+  margin: 1rem 0;
+
+  & input {
+    font-size: 2rem;
+  }
+}
+
 .app {
   background-color: #fafafa;
   height: 100vh;
 
   &__header {
-    padding: 2rem;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    padding: 1.5rem;
     background-color: white;
     border-bottom: 0.1rem solid lightgray;
     object-fit: contain;
+    display: flex;
+    justify-content: space-between;
+
+    &-image {
+      object-fit: contain;
+    }
+  }
+
+  &__login {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+
+    &-login {
+      margin-top: 9rem !important;
+    }
+
+    & button {
+      margin-top: 3rem;
+      height: 5rem;
+      font-size: 2rem;
+    }
+
+    &-home {
+      &-login {
+        margin-right: 2rem !important;
+      }
+
+      button {
+        font-size: 2rem;
+      }
+    }
+  }
+
+  &__posts {
+    padding: 2rem;
+    display: flex;
+    justify-content: center;
+
+    &-right {
+      margin-left: 2rem;
+    }
   }
 }
