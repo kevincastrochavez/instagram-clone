@@ -5,6 +5,7 @@ import { db, auth } from "./firebase";
 import ImageUpload from "./components/ImageUpolad";
 import InstagramEmbed from "react-instagram-embed";
 import FlipMove from "react-flip-move";
+import axios from "./axios";
 
 function getModalStyle() {
   const top = 50;
@@ -66,17 +67,16 @@ function App() {
   console.log("user", user);
 
   useEffect(() => {
-    db.collection("posts")
-      .orderBy("timestamp", "desc")
-      .onSnapshot((snapshot) => {
-        setPosts(
-          snapshot.docs.map((doc) => ({
-            id: doc.id,
-            post: doc.data(),
-          }))
-        );
+    const fetchPosts = async () =>
+      await axios.get("/").then((response) => {
+        console.log(response);
+        setPosts(response.data);
       });
+
+    fetchPosts();
   }, []);
+
+  console.log("Posts are ", posts);
 
   const handleLogin = (e) => {
     e.preventDefault();
@@ -168,7 +168,7 @@ function App() {
           alt="Instagram Logo"
         />
 
-        {user ? (
+        {user?.displayName ? (
           <div className="app__header-right">
             <Button className="app__logout" onClick={() => auth.signOut()}>
               Logout
@@ -195,14 +195,14 @@ function App() {
       <div className="app__posts">
         <div className="app__postsLeft">
           <FlipMove>
-            {posts.map(({ id, post }) => (
+            {posts.map((post) => (
               <Post
-                key={id}
-                postId={id}
+                key={post._id}
+                postId={post._id}
                 user={user}
-                username={post.username}
+                username={post.user}
                 caption={post.caption}
-                imageUrl={post.imageUrl}
+                imageUrl={post.image}
               />
             ))}
           </FlipMove>
