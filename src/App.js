@@ -44,7 +44,6 @@ function App() {
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((authUser) => {
       if (authUser) {
-        console.log(authUser);
         setUser(authUser);
 
         if (authUser.displayName) {
@@ -62,8 +61,6 @@ function App() {
       unsubscribe();
     };
   }, [user, username]);
-
-  console.log("user", user);
 
   useEffect(() => {
     db.collection("posts")
@@ -168,7 +165,7 @@ function App() {
           alt="Instagram Logo"
         />
 
-        {user ? (
+        {user?.displayName ? (
           <div className="app__header-right">
             <Button className="app__logout" onClick={() => auth.signOut()}>
               Logout
@@ -224,7 +221,13 @@ function App() {
         </div>
       </div>
 
-      {user?.displayName ? <ImageUpload username={user.displayName} /> : ""}
+      {user?.displayName ? (
+        <ImageUpload username={user.displayName} />
+      ) : (
+        <center>
+          <h2>Login to Upload</h2>
+        </center>
+      )}
     </div>
   );
 }
